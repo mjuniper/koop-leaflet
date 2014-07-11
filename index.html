@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>koop leaflet</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div id="map"></div>
+
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="scripts/leaflet.ajax.js"></script>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <!-- <script src="../bower_components/jquery/dist/jquery.js"></script> -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+          var map = L.map('map').setView([47.6, -122.3], 11);
+
+          L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          var geojsonLayer = new L.GeoJSON.AJAX("http://koop.dc.esri.com/agol/arcgis/1dd1c8ccd54347f1bbd966337bde45f7.json").addTo(map);
+        </script>
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <!-- <script src="scripts/main.js"></script> -->
+        <!-- endbuild -->
+</body>
+</html>
